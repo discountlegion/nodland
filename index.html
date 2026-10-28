@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nodland — Good old-fashioned storytelling</title>
+<meta name="description" content="Good old-fashioned storytelling. 365 bedtime stories, one for every night.">
+<link rel="icon" type="image/png" href="assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Nunito", Verdana, sans-serif;
+    background: #FFF6E5;
+    color: #0F1B2D;
+    line-height: 1.6;
+  }
+  h1, h2, h3 { font-family: "Fredoka", "Baloo 2", sans-serif; }
+  a { color: #1B2F4A; }
+  header {
+    background: linear-gradient(180deg, #0F1B2D 0%, #1B2F4A 55%, #FFF6E5 100%);
+    text-align: center;
+    padding: 2rem 1rem 1.5rem;
+  }
+  .hero-img {
+    width: 96%; max-width: 760px; height: auto; display: block; margin: 0 auto 1.25rem;
+    border-radius: 28px; border: 5px solid #fff;
+    box-shadow: 0 14px 30px rgba(15,27,45,.4);
+  }
+  @media (max-width: 600px) {
+    header { padding: 0 0 1.25rem; }
+    header h1, header p.tagline, header p.sub { padding-left: 1rem; padding-right: 1rem; }
+    .hero-img {
+      width: 100%; max-width: none; height: 55vh; object-fit: cover; object-position: center;
+      border: none; border-radius: 0; box-shadow: none; margin: 0 0 1rem;
+    }
+    header h1 { font-size: 2.6rem; }
+  }
+  header h1 { font-size: 3.2rem; line-height: 1.1; color: #FFC94D; letter-spacing: 2px; }
+  header p.tagline { font-size: 1.5rem; margin-top: .25rem; font-weight: 800; color: #FFF6E5; }
+  header p.sub { font-size: 1.15rem; margin-top: .5rem; color: #334155; }
+  .pill {
+    display: inline-block; margin-top: 1rem; background: #FFC94D; color: #0F1B2D;
+    font-weight: 800; font-size: 1.05rem; padding: .55rem 1.25rem; border-radius: 999px;
+  }
+  main { max-width: 920px; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+  section { margin-bottom: 2.75rem; }
+  h2 { font-size: 2rem; color: #0F1B2D; margin-bottom: .75rem; text-align: center; }
+  p.lead { font-size: 1.2rem; text-align: center; max-width: 660px; margin: 0 auto; color: #334155; }
+  .cards { display: flex; flex-wrap: wrap; gap: 1.1rem; justify-content: center; margin-top: 1.25rem; }
+  .card {
+    background: #fff; border-radius: 24px; padding: 1.5rem;
+    flex: 1 1 240px; max-width: 340px; text-align: center;
+    box-shadow: 0 8px 20px rgba(15,27,45,.15); border: 3px solid #FFE9B8;
+  }
+  .card .emoji { font-size: 3rem; display: block; margin-bottom: .5rem; }
+  .card h3 { font-size: 1.35rem; margin-bottom: .4rem; color: #0F1B2D; }
+  .card p { font-size: 1.05rem; color: #334155; }
+  .showcase { display: flex; flex-wrap: wrap; gap: 1.1rem; justify-content: center; margin-top: 1.25rem; }
+  .showcase figure { flex: 1 1 260px; max-width: 420px; text-align: center; }
+  .showcase img {
+    width: 100%; border-radius: 20px; border: 4px solid #fff;
+    box-shadow: 0 10px 22px rgba(15,27,45,.25);
+  }
+  .showcase figcaption { margin-top: .5rem; font-size: 1.1rem; font-weight: 800; color: #0F1B2D; }
+  .compare { display: flex; flex-wrap: wrap; gap: 1.1rem; justify-content: center; margin-top: 1.25rem; }
+  .plan {
+    background: #fff; border-radius: 24px; padding: 1.75rem;
+    flex: 1 1 280px; max-width: 400px; text-align: center;
+    box-shadow: 0 10px 24px rgba(15,27,45,.15);
+  }
+  .plan.free { border: 4px solid #22c55e; }
+  .plan.unlock { border: 4px solid #FFC94D; }
+  .plan h3 { font-size: 1.5rem; margin-bottom: .25rem; }
+  .plan.free h3 { color: #059669; }
+  .plan.unlock h3 { color: #b45309; }
+  .plan .price { font-size: 1.8rem; font-weight: 800; margin: .5rem 0; }
+  .plan ul { list-style: none; display: inline-block; text-align: left; margin-top: .75rem; }
+  .plan li { padding: .35rem 0; font-size: 1.1rem; }
+  .plan li::before { content: "✓ "; font-weight: 800; }
+  .plan.free li::before { color: #059669; }
+  .plan.unlock li::before { color: #b45309; }
+  .panel {
+    background: #0F1B2D; border-radius: 24px; padding: 2rem 1.75rem; text-align: center;
+    box-shadow: 0 10px 24px rgba(15,27,45,.25); color: #FFF6E5;
+  }
+  .panel h2 { color: #FFC94D; }
+  .panel p { font-size: 1.15rem; max-width: 660px; margin: .5rem auto 0; color: #E7E0D0; }
+  .btn {
+    display: inline-block; margin-top: 1.25rem; background: #FFC94D; color: #0F1B2D;
+    font-weight: 800; font-size: 1.15rem; padding: .7rem 1.6rem; border-radius: 999px; text-decoration: none;
+  }
+  footer { text-align: center; padding: 1.5rem 1rem 2.5rem; color: #334155; font-size: 1rem; }
+  footer a { margin: 0 .5rem; }
+</style>
+</head>
+<body>
+<header>
+  <img class="hero-img" src="assets/banner.webp" alt="Nodland bedtime banner">
+  <h1>NODLAND</h1>
+  <p class="tagline">Good old-fashioned storytelling.</p>
+  <p class="sub">365 bedtime stories, one for every night — told with your child's name in it.</p>
+  <span class="pill">Coming soon to Google Play</span>
+</header>
+<main>
+  <section>
+    <h2>A calm, gentle story every night</h2>
+    <p class="lead">Nodland is a bedtime-story app for kids, built around one simple idea: a calm, gentle story every night, told with your child's name in it. Everything works fully offline. No account, no ads, and no internet needed — open the app at bedtime and it just works.</p>
+  </section>
+  <section>
+    <h2>What's inside</h2>
+    <div class="cards">
+      <div class="card"><span class="emoji">📚</span><h3>365 stories</h3><p>120 Short, 125 Medium, and 120 Long pre-written stories — one for every day of the year, plus 10 bonus Thanksgiving stories.</p></div>
+      <div class="card"><span class="emoji">⭐</span><h3>Made yours</h3><p>Add your child's name as the hero, one character (a family member, a friend, or a pet), and your town — and the story is told with them in it.</p></div>
+      <div class="card"><span class="emoji">🌙</span><h3>Tonight's Story</h3><p>Can't choose? Tonight's Story picks one for tonight, so bedtime starts without a debate.</p></div>
+      <div class="card"><span class="emoji">🎵</span><h3>Lullabies &amp; rain</h3><p>5 gentle music-box lullabies plus calming rain sounds, with a sleep timer that fades out.</p></div>
+      <div class="card"><span class="emoji">🌜</span><h3>One-tap wind-down</h3><p>Tonight's story, followed by the lullaby or rain sound you picked — one tap and the evening settles.</p></div>
+      <div class="card"><span class="emoji">🎙️</span><h3>Your own voice</h3><p>Record stories in your own voice. Recordings stay on your device only — they are never uploaded or shared.</p></div>
+      <div class="card"><span class="emoji">♥</span><h3>Favorites &amp; pick-up</h3><p>Save favorites and pick up where you left off, right at the sentence you paused on.</p></div>
+      <div class="card"><span class="emoji">⏰</span><h3>Bedtime reminder</h3><p>A gentle daily reminder when bedtime approaches, plus a sleep timer for stories.</p></div>
+      <div class="card"><span class="emoji">📴</span><h3>Fully offline</h3><p>No account, no ads, no internet. Non-stimulating before bedtime: no videos, no stimulating images.</p></div>
+    </div>
+  </section>
+  <section>
+    <h2>A peek inside</h2>
+    <p class="lead">The app at a glance — calm screens, nothing flashing, nothing to tap through but the story.</p>
+    <div class="showcase">
+      <figure><img src="assets/mascot.webp" alt="Nodland moon mascot"><figcaption>Your bedtime companion</figcaption></figure>
+      <figure><img src="assets/goodnight.webp" alt="Nodland goodnight art"><figcaption>Every story ends with a goodnight</figcaption></figure>
+      <figure><img src="assets/seasonal.webp" alt="Nodland seasonal stories card"><figcaption>Bonus seasonal stories</figcaption></figure>
+    </div>
+  </section>
+  <section>
+    <div class="panel">
+      <h2>Try a sample story</h2>
+      <p>Three full stories are free to read right here — the same three samples the app lets you try before buying. The app personalizes them with your child's name; below they read the way the app fills them in.</p>
+      <a class="btn" href="samples.html">Read the 3 free sample stories →</a>
+    </div>
+  </section>
+  <section>
+    <h2>Simple pricing</h2>
+    <div class="compare">
+      <div class="plan free">
+        <h3>Free</h3>
+        <div class="price">$0</div>
+        <ul>
+          <li>3 free sample stories</li>
+          <li>Full feature access to try</li>
+        </ul>
+      </div>
+      <div class="plan unlock">
+        <h3>Unlock everything</h3>
+        <div class="price">$4.99 one-time</div>
+        <ul>
+          <li>All 365 stories</li>
+          <li>Tonight's Story</li>
+          <li>Lullabies &amp; rain sounds</li>
+          <li>No recurring charges, ever</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2>For parents</h2>
+    <p class="lead">Nodland collects nothing, shares nothing, and sends nothing anywhere. Names you enter, voice recordings, favorites, and settings stay on your device only. Read the full policy anytime.</p>
+    <p style="text-align:center; margin-top:1rem;"><a href="privacy.html">Privacy Policy →</a></p>
+  </section>
+</main>
+<footer>
+  <p>© 2026 Nodland</p>
+  <p><a href="privacy.html">Privacy Policy</a> · Questions: <a href="mailto:hello@lucidoselabs.com">hello@lucidoselabs.com</a></p>
+</footer>
+</body>
+</html>
